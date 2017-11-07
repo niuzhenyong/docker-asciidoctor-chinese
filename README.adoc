@@ -1,1 +1,15 @@
-带有中文支持的Asciidoctor容器
+= 带有中文支持的Asciidoctor容器
+
+该容器是在 asciidoctor/docker-asciidoctor 容器的基础上增加了生成中文 PDF 格式文档的内容，除了 PDF 格式的文档之外，其他内容请参考 https://hub.docker.com/r/asciidoctor/docker-asciidoctor/[asciidoctor/docker-asciidoctor] 项目内容。PDF 格式的中文支持来自 https://github.com/chloerei/asciidoctor-pdf-cjk-kai_gen_gothic[asciidoctor-pdf-cjk-kai_gen_gothic] 项目，具体内容请参考官方文档。
+
+== 启动容器的命令：
+
+----
+docker run -it --rm -v <本地目录>/documents niuzhenyong/docker-asciidoctor-chinese
+----
+
+== 在容器内生成 PDF 格式文档的命令：
+
+----
+asciidoctor-pdf -r asciidoctor-pdf-cjk-kai_gen_gothic -a pdf-style=KaiGenGothicCN <Asciidoc文件名称>
+----
